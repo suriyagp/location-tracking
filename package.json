@@ -4,8 +4,9 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build && npm run build:functions",
-    "build:functions": "netlify-lambda build src/functions",
+    "build:functions": "netlify-lambda build functions",
+    "build": "ng build --prod",
+    "build:lambda": "netlify-lambda build src/functions --config webpack.config.js",
     "server": "node backend/server.js",
     "dev": "concurrently \"npm run start\" \"npm run server\""
   },
@@ -17,21 +18,25 @@
     "@angular/forms": "^19.2.0",
     "@angular/platform-browser": "^19.2.0",
     "@angular/router": "^19.2.0",
-    "express": "^4.18.2",
-    "mongoose": "^8.2.0",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mongoose": "^8.2.0",
     "rxjs": "^7.8.1",
+    "serverless-http": "^3.2.0",
     "tslib": "^2.5.0",
-    "zone.js": "~0.15.0",
-    "serverless-http": "^3.2.0"
+    "zone.js": "~0.15.0"
   },
   "devDependencies": {
     "@angular/build": "^19.2.0",
     "@angular/cli": "^19.2.0",
     "@angular/compiler-cli": "^19.2.0",
+    "@babel/core": "^7.27.1",
+    "@babel/preset-env": "^7.27.2",
+    "@babel/preset-typescript": "^7.27.1",
+    "babel-loader": "^10.0.0",
     "concurrently": "^8.2.2",
-    "typescript": "^5.8.2",
-    "netlify-lambda": "^2.0.16"
+    "netlify-lambda": "^2.0.16",
+    "typescript": "^5.8.3"
   }
 }
