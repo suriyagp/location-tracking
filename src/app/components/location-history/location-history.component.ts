@@ -22,7 +22,7 @@ import { LocationHistory } from '../../models/user-location.model';
         </div>
         
         <div *ngIf="!isLoading && history?.locations?.length" class="history-list">
-          <div class="history-item" *ngIf= "history" *ngFor="let location of history?.locations?.slice().reverse()">
+          <div class="history-item"  *ngFor="let location of history?.locations">
             <div class="history-coords">
               <span>{{ formatCoordinate(location.latitude) }}, {{ formatCoordinate(location.longitude) }}</span>
             </div>
