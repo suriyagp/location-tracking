@@ -1,0 +1,20 @@
+<div class="home-container">
+  <header class="app-header">
+    <h1>Header</h1>
+    <div *ngIf="username" class="user-info">
+      <span>{{ username }}</span>
+      <button class="btn-small" (click)="logout()">Logout</button>
+    </div>
+  </header>
+  
+  <div class="content-container">
+    <ng-container *ngIf="username; else showDialog">
+      <app-location-display [username]="username"></app-location-display>
+      <app-location-history [username]="username"></app-location-history>
+    </ng-container>
+    
+    <ng-template #showDialog>
+      <app-username-dialog (usernameSubmitted)="onUsernameSubmitted($event)"></app-username-dialog>
+    </ng-template>
+  </div>
+</div>
