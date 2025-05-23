@@ -248,7 +248,7 @@ export class LocationDisplayComponent implements OnInit, OnDestroy {
         if (this.geoState.position) {
           this.saveLocation(this.geoState.position);
         }
-      }, 30000); // 30 seconds
+      }, 10000); // 10 seconds
     }
   }
   
